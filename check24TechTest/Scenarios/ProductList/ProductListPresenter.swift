@@ -7,14 +7,27 @@
 import UIKit
 
 protocol IProductListPresenter: class {
-	// do someting...
+	func viewDidLoad()
+    func successRequest(data: ProductListModel.Response)
+    func failureRequest(message: String)
 }
 
-class ProductListPresenter: IProductListPresenter {	
+class ProductListPresenter: IProductListPresenter {
+    func successRequest(data: ProductListModel.Response) {
+        
+    }
+    
+    func failureRequest(message: String) {
+        
+    }
+    
 	weak var view: IProductListViewController!
     var interactor: IProductListInteractor!
 	
 	init(view: IProductListViewController) {
 		self.view = view
 	}
+    func viewDidLoad() {
+        interactor.getProductList()
+    }
 }

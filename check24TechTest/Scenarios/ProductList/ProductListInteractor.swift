@@ -8,6 +8,7 @@ import UIKit
 
 protocol IProductListInteractor: class {
 	var parameters: [String: Any]? { get }
+    func getProductList()
 }
 
 class ProductListInteractor: IProductListInteractor {
@@ -20,5 +21,14 @@ class ProductListInteractor: IProductListInteractor {
 
     init(presenter: IProductListPresenter) {
     	self.presenter = presenter
+    }
+    func getProductList() {
+        NetworkManager.shared.sendRequestWith(target:.productList) { (data: ProductListModel.Response) in
+            self.presenter.successRequest(data: data)
+            
+        } failure: { message in
+            self.presenter.failureRequest(message: message)
+        }
+
     }
 }

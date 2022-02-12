@@ -8,7 +8,7 @@
 import UIKit
 
 protocol IProductListViewController: class {
-	// do someting...
+	
 }
 
 class ProductListViewController: UIViewController {
@@ -17,7 +17,7 @@ class ProductListViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-		// do someting...
+        presenter.viewDidLoad()
     }
 }
 

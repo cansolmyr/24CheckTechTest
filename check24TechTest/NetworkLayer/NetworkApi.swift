@@ -27,7 +27,7 @@ enum NetworkAPI {
     }
     
     private var baseURL: String {
-        return "http://app.check24.de/"
+        return "https://app.check24.de/"
     }
     
     var endpoint: String {
